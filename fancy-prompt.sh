@@ -134,8 +134,8 @@ __powerline() {
         	local USER_BG="$MICHAEL_BG_YELLOW_BRIGHT"	
 	 	local USER_TEXT="$FG_BASE02"
  	else
-		local USER_FG="$MICHAEL_FG_YELLOW_BRIGHT"
-        	local USER_BG="$MICHAEL_BG_YELLOW_BRIGHT"
+		local USER_FG="$FG_BASE02"
+        	local USER_BG="$BG_BASE02"
 	 	local USER_TEXT="$FG_BASE3"
    		local USER_EMOJI="☢️"
 	if
