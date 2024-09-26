@@ -37,11 +37,13 @@ __powerline() {
     readonly DIM="\\[$(tput dim)\\]"
     readonly FG_BASE00="\\[$(tput setaf 11)\\]"
     readonly FG_BASE01="\\[$(tput setaf 10)\\]"
+    # Black
     readonly FG_BASE02="\\[$(tput setaf 0)\\]"
     readonly FG_BASE03="\\[$(tput setaf 8)\\]"
     readonly FG_BASE0="\\[$(tput setaf 12)\\]"
     readonly FG_BASE1="\\[$(tput setaf 14)\\]"
     readonly FG_BASE2="\\[$(tput setaf 7)\\]"
+    # White
     readonly FG_BASE3="\\[$(tput setaf 15)\\]"
     readonly FG_BLUE="\\[$(tput setaf 4)\\]"
     readonly FG_COLOR1="\\[\\e[38;5;250m\\]"
@@ -119,7 +121,7 @@ __powerline() {
             local BG_EXIT="$BG_GREEN"
             local FG_EXIT="$FG_GREEN"
         else
-			local EMOJI="💀"
+	    local EMOJI="💀"
             local BG_EXIT="$BG_ORANGE"
             local FG_EXIT="$FG_ORANGE"
         fi
@@ -127,15 +129,23 @@ __powerline() {
         local HOSTNAME_FG="$MICHAEL_FG_DEEP_PURPLE"
         local HOSTNAME_BG="$MICHAEL_BG_DEEP_PURPLE"
 
-        local USER_FG="$MICHAEL_FG_YELLOW_BRIGHT"
-        local USER_BG="$MICHAEL_BG_YELLOW_BRIGHT"
+        if [[ $UID -eq "0" ]]; then 
+		local USER_FG="$MICHAEL_FG_YELLOW_BRIGHT"
+        	local USER_BG="$MICHAEL_BG_YELLOW_BRIGHT"	
+	 	local USER_TEXT="$FG_BASE02"
+ 	else
+		local USER_FG="$MICHAEL_FG_YELLOW_BRIGHT"
+        	local USER_BG="$MICHAEL_BG_YELLOW_BRIGHT"
+	 	local USER_TEXT="$FG_BASE3"
+   		local USER_EMOJI="☢️"
+	if
 
         local WORKDIR_FG="$FG_COLOR6"
         local WORKDIR_BG="$BG_COLOR5"
 
         PS1="$FG_COLOR2"
         PS1+="$HOSTNAME_BG$FG_BASE3 \\h $HOSTNAME_FG"
-        PS1+="$USER_BG$RESET$FG_BASE02$USER_BG \\u $USER_FG"
+        PS1+="$USER_BG$RESET$USER_TEXT$USER_BG \\u ${USER_EMOJI}$USER_FG"
         PS1+="$WORKDIR_BG$RESET$WORKDIR_BG \\w "
         PS1+="$RESET${WORKDIR_FG}"
         PS1+="$(__git_info)"
