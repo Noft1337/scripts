@@ -1,0 +1,138 @@
+// VSCode Settings
+{
+    // Plugins needed,
+    // Python
+    // Pylint
+    // Black-Formatter
+    // Monokai Pro
+    // YAML
+    // Prettier VSCode
+    // Bash IDE
+    // Shellcheck
+    // Shfmt
+    // General
+    "editor.codeLensFontFamily": "Hack Nerd Font Mono",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.defaultProfile.osx": "bash",
+
+    // Define file plugins
+    "files.associations": {
+        "*.yml": "yaml",
+        "*.yaml": "yaml",
+        "*.sh": "shellscript",
+        "*.bash": "shellscript",
+        "*.zsh": "shellscript",
+        "*.bashrc": "shellscript",
+        "*.bash_profile": "shellscript",
+        "*.profile": "shellscript",
+        "*.env": "shellscript",
+        "*.bash_aliases": "shellscript",
+        "*.bash_functions": "shellscript",
+        "*.py": "python"
+    },
+
+    "workbench.colorTheme": "Monokai++",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "editor.fontFamily": "'Hack Nerd Font Mono'",
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontFamily"
+    ],
+    "workbench.preferredHighContrastLightColorTheme": "chalice-color-theme-dark",
+    "workbench.preferredLightColorTheme": "Visual Studio Dark",
+    "titan.onTheFlyChecker.enableDocComments": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "explorer.confirmDragAndDrop": false,
+
+    // Yaml
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "/*.github/workflows/*",
+        "https://json.schemastore.org/kubernetes-json-schema/v1.18.0-standalone-strict/all.json": "/*.k8s.yaml"
+    },
+    "yaml.format.enable": true,
+    "yaml.format.bracketSpacing": true,
+    "yaml.format.proseWrap": "preserve",
+    "yaml.validate": true,
+    "yaml.lint.emptyLines": "warning",
+    "yaml.lint.noTabs": "error",
+    "yaml.lint.bracketSpacing": "warning",
+    "yaml.customTags": [
+        "!Scalar",
+        "!Import",
+        "!Ref",
+        "!Sub",
+        "!GetAtt"
+    ],
+    "prettier.requireConfig": true,
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true
+    },
+    "eslint.validate": [
+        "yaml"
+    ],
+    "explorer.confirmDelete": false,
+
+    // Bash
+    "bashIde.enable": true,
+    "bashIde.highlightParsingErrors": true,
+    "bashIde.logLevel": "warning",
+    "bashIde.explainshellEndpoint": "",
+    "bashIde.codeLens.enabled": true,
+    "bashIde.lintOnSave": true,
+
+    "shellcheck.executablePath": "/usr/bin/shellcheck",
+    "shellcheck.enable": true,
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format",
+        "editor.formatOnSave": true
+    },
+    "shellformat.path": "/usr/bin/shfmt",
+    "shellformat.flag": "-i 4 -ci",
+    "redhat.telemetry.enabled": true,
+
+    // Python
+    "python.defaultInterpreterPath": "/home/michael/main/bin/python3",
+
+    // Enable the Pylance language server
+    "python.languageServer": "Default",
+    // "python.analysis.useLibraryCodeForTypes": true,
+    // "python.analysis.typeEvaluation.analyzeUnannotatedFunctions": true,
+    // "python.analysis.completeFunctionParens": true,
+    // "python.analysis.autoIndent": true,
+    "python.analysis.indexing": false,
+    "python.analysis.typeCheckingMode": "strict",
+
+    // Linting settings
+    "pylint.args": [
+        "--disable=C0114,C0115,C0116,C0411,W1514,W0603,W0719"
+    ],
+
+    // Formatting settings
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "black-formatter.args": [
+        "--line-length",
+        "88"
+    ],
+
+    // Test framework settings
+    "python.testing.unittestEnabled": true,
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
+
+}
