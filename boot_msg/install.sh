@@ -7,7 +7,7 @@ fi
 
 # Copy the boot_msg files so that initcpio will acknowledge them
 cp rainbow_msg /etc/initcpio/hooks/rainbow_msg
-cp rainbow_msg_installer /etc/initcpio/install/rainbow_msg
+cp rainbow_msg_install /etc/initcpio/install/rainbow_msg
 
 # Set them to be executable
 chmod a+x /etc/initcpio/hooks/rainbow_msg
