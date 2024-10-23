@@ -3,22 +3,37 @@
 # I use this script in initcpio to display a fancy message when booting up my host
 
 welcome_msg="Welcome to Noft's Arch Linux"
-palette_len=128
 
 # Define the rainbow colors
 # shellcheck disable=SC2034
 colors_16=(31 33 32 36 34 35)
 # shellcheck disable=SC2034
 colors_256=(
-    196 202 208 214 220 226 190 154 118 82 46 47 48 49 50 51 51
-    51 45 39 33 27 21 20 19 18 54 55 56 57 93 129 165 201 200
-    199 198 197
+    196 202 208 214 220 226 190 154 118 82 46 47 48 49 50 51 45 39
+    33 27 21 20 19 18 54 55 56 57 93 129 165 201 200 199 198 197
 )
 
 if [[ $(tput colors) -ge 256 ]]; then
     IS_256_TERM=true
 else
     IS_256_TERM=false
+fi
+
+# Get the terminal width using tput, if available
+if command -v tput >/dev/null; then
+    _term_cols=$(tput cols)
+    if $IS_256_TERM; then
+        _palette=("${colors_256[@]}")
+    else
+        _palette=("${colors_16[@]}")
+    fi
+
+    _len="${#_palette[@]}"
+    _to_sub=$(expr "$_term_cols" % "$_len")
+
+    palette_len=$((_term_cols - _to_sub))
+else
+    palette_len=114 # Fallback to 114 if tput is not available
 fi
 
 # Reset color
@@ -116,3 +131,4 @@ run_hook() {
     echo -e "$gradient_and_text"
     echo -e "$gradient"
 }
+run_hook

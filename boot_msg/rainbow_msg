@@ -3,12 +3,37 @@
 # I use this script in initcpio to display a fancy message when booting up my host
 
 WELCOME_MSG="~~~Welcome to Noft's Arch Linux~~~"
-PALETTE_LEN=114
 SOLID_COLOR="\033[39m" # White
+
+# Check if terminal supports 256 colors
+if [ "$(tput colors)" -ge 256 ]; then
+    IS_256_TERM=true
+else
+    IS_256_TERM=false
+fi
 
 # Define the rainbow colors as space-separated strings
 COLORS_16="31 33 32 36 34 35"
-COLORS_256="196 202 208 214 220 226 190 154 118 82 46 47 48 49 50 51 51 51 45 39 33 27 21 20 19 18 54 55 56 57 93 129 165 201 200 199 198 197"
+COLORS_256="196 202 208 214 220 226 190 154 118 82 46 47 48 49 50 51 45 39 33 27 21 20 19 18 54 55 56 57 93 129 165 201 200 199 198 197"
+
+# Get the terminal width using tput, if available
+if command -v tput >/dev/null; then
+    _term_cols=$(tput cols)
+    if $IS_256_TERM; then
+        _palette=$COLORS_256
+    else
+        _palette=$COLORS_16
+    fi
+
+    # shellcheck disable=SC2086
+    set -- $_palette
+    _len="$#"
+    _to_sub=$(expr "$_term_cols" % "$_len")
+
+    PALETTE_LEN=$((_term_cols - _to_sub))
+else
+    PALETTE_LEN=114 # Fallback to 114 if tput is not available
+fi
 
 # Weather or not should it paint the background without any character
 # Looks much cleaner but might not be supported on all POSIX Shells (such as the GRUB one)
@@ -19,13 +44,6 @@ if $USE_BACKGROUND; then
     GRADIENT_CHAR=" "
 else
     GRADIENT_CHAR="#"
-fi
-
-# Check if terminal supports 256 colors
-if [ "$(tput colors)" -ge 256 ]; then
-    IS_256_TERM=true
-else
-    IS_256_TERM=false
 fi
 
 # Reset color
@@ -120,8 +138,8 @@ gradient_with_text() {
     _text_half=$((_text_len / 2))
 
     _gradient_half=$((_gradient_len / 2))
-    _gradient_first=$((_gradient_half - _text_half))
-    _gradient_last=$(($((_gradient_half + _text_half)) + 1))
+    _gradient_first=$(($((_gradient_half - _text_half)) - 1))
+    _gradient_last=$((_gradient_half + _text_half))
 
     if $USE_BACKGROUND; then
         _colored_text=$(get_text_rainbow)
