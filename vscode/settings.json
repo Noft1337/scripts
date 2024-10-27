@@ -12,9 +12,9 @@
     // shell-format
     // Shfmt
     // General
-    "editor.codeLensFontFamily": "Hack Nerd Font Mono",
+    "editor.codeLensFontFamily": "Hack Nerd Font",
     "editor.fontSize": 14,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.defaultProfile.osx": "bash",
     "terminal.integrated.hideOnStartup": "never",
