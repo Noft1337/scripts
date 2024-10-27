@@ -19,6 +19,16 @@
     "terminal.integrated.defaultProfile.osx": "bash",
     "terminal.integrated.hideOnStartup": "never",
 
+    // Define which files to hide on Explorer
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    
     // Define file plugins
     "files.associations": {
         "*.yml": "yaml",
@@ -136,7 +146,6 @@
         "comments": false,
         "strings": false
     },
-
 }
 
 
