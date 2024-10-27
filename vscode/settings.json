@@ -9,6 +9,7 @@
     // Prettier VSCode
     // Bash IDE
     // Shellcheck
+    // shell-format
     // Shfmt
     // General
     "editor.codeLensFontFamily": "Hack Nerd Font Mono",
@@ -16,6 +17,7 @@
     "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
     "terminal.integrated.fontSize": 16,
     "terminal.integrated.defaultProfile.osx": "bash",
+    "terminal.integrated.hideOnStartup": "never",
 
     // Define file plugins
     "files.associations": {
@@ -27,19 +29,18 @@
         "*.bashrc": "shellscript",
         "*.bash_profile": "shellscript",
         "*.profile": "shellscript",
-        "*.env": "shellscript",
+        //"*.env": "shellscript",
         "*.bash_aliases": "shellscript",
         "*.bash_functions": "shellscript",
         "*.py": "python"
     },
 
-    "workbench.colorTheme": "Monokai++",
-    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "workbench.colorTheme": "One Dark Pro Flat",
+    "workbench.iconTheme": "Monokai Pro (Filter Ristretto) Icons",
     "editor.fontFamily": "'Hack Nerd Font Mono'",
     "workbench.settings.applyToAllProfiles": [
         "editor.fontFamily"
     ],
-    "workbench.preferredHighContrastLightColorTheme": "chalice-color-theme-dark",
     "workbench.preferredLightColorTheme": "Visual Studio Dark",
     "titan.onTheFlyChecker.enableDocComments": false,
     "editor.unicodeHighlight.nonBasicASCII": false,
@@ -105,11 +106,12 @@
     // "python.analysis.completeFunctionParens": true,
     // "python.analysis.autoIndent": true,
     "python.analysis.indexing": false,
-    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.completeFunctionParens": true,
 
     // Linting settings
     "pylint.args": [
-        "--disable=C0114,C0115,C0116,C0411,W1514,W0603,W0719"
+        "--disable=C0114,C0115,C0116,C0411,W1514,W0603,W0719,W0702,C0303,C0301,W0102,C3001,C0412,R0913"
     ],
 
     // Formatting settings
@@ -136,3 +138,5 @@
     },
 
 }
+
+

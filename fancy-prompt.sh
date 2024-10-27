@@ -63,18 +63,18 @@ __powerline() {
     readonly FG_YELLOW="\\[$(tput setaf 3)\\]"
     readonly RESET="\\[$(tput sgr0)\\]"
     readonly REVERSE="\\[$(tput rev)\\]"
-	readonly MICHAEL_FG_YELLOW_BRIGHT="\\[\\e[38;5;229m\\]"
-	readonly MICHAEL_BG_YELLOW_BRIGHT="\\[\\e[48;5;229m\\]"
-	readonly MICHAEL_FG_PINK_BRIGHT="\\[\\e[38;5;197m\\]"
-	readonly MICHAEL_BG_PINK_BRIGHT="\\[\\e[48;5;197m\\]"
-	readonly MICHAEL_FG_LIME="\\[\\e[38;5;190m\\]"
-	readonly MICHAEL_BG_LIME="\\[\\e[48;5;190m\\]"
+    readonly MICHAEL_FG_YELLOW_BRIGHT="\\[\\e[38;5;229m\\]"
+    readonly MICHAEL_BG_YELLOW_BRIGHT="\\[\\e[48;5;229m\\]"
+    readonly MICHAEL_FG_PINK_BRIGHT="\\[\\e[38;5;197m\\]"
+    readonly MICHAEL_BG_PINK_BRIGHT="\\[\\e[48;5;197m\\]"
+    readonly MICHAEL_FG_LIME="\\[\\e[38;5;190m\\]"
+    readonly MICHAEL_BG_LIME="\\[\\e[48;5;190m\\]"
     readonly MICHAEL_FG_DEEP_PURPLE="\\[\\e[38;5;89m\\]"
-	readonly MICHAEL_BG_DEEP_PURPLE="\\[\\e[48;5;89m\\]"
+    readonly MICHAEL_BG_DEEP_PURPLE="\\[\\e[48;5;89m\\]"
 
     __git_info() {
         # no .git directory
-    	[ -d .git ] || return
+        [ -d .git ] || return
 
         local aheadN
         local behindN
@@ -84,7 +84,7 @@ __powerline() {
 
         # get current branch name or short SHA1 hash for detached head
         branch="$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --always 2>/dev/null)"
-        [ -n "$branch" ] || return  # git branch not found
+        [ -n "$branch" ] || return # git branch not found
 
         # how many commits local branch is ahead/behind of remote?
         stats="$(git status --porcelain --branch | grep '^##' | grep -o '\[.\+\]$')"
@@ -100,9 +100,8 @@ __powerline() {
         local GIT_CHANGED_FG_2="$FG_COLOR8"
         local GIT_CHANGED_BG="$BG_COLOR8"
 
-		local GIT_EDIT_EMOJI="✏"
-		local GIT_UPDATED_EMOJI="Ψ"
-
+        local GIT_EDIT_EMOJI="✏"
+        local GIT_UPDATED_EMOJI="Ψ"
 
         # print the git branch segment without a trailing newline
         # branch is modified?
@@ -117,11 +116,11 @@ __powerline() {
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly.
         if [ "$?" -eq 0 ]; then
-			local EMOJI="$PS_SYMBOL"
+            local EMOJI="$PS_SYMBOL"
             local BG_EXIT="$BG_GREEN"
             local FG_EXIT="$FG_GREEN"
         else
-	    local EMOJI="💀"
+            local EMOJI="💀"
             local BG_EXIT="$BG_ORANGE"
             local FG_EXIT="$FG_ORANGE"
         fi
@@ -129,23 +128,23 @@ __powerline() {
         local HOSTNAME_FG="$MICHAEL_FG_DEEP_PURPLE"
         local HOSTNAME_BG="$MICHAEL_BG_DEEP_PURPLE"
 
-        if [[ $UID -eq "0" ]]; then 
-		local USER_FG="$MICHAEL_FG_YELLOW_BRIGHT"
-        	local USER_BG="$MICHAEL_BG_YELLOW_BRIGHT"	
-	 	local USER_TEXT="$FG_BASE02"
- 	else
-		local USER_FG="$FG_BASE02"
-        	local USER_BG="$BG_BASE02"
-	 	local USER_TEXT="$FG_BASE3"
-   		local USER_EMOJI="☢️"
-	if
+        if [[ $UID -eq "0" ]]; then
+            local USER_FG="$MICHAEL_FG_YELLOW_BRIGHT"
+            local USER_BG="$MICHAEL_BG_YELLOW_BRIGHT"
+            local USER_TEXT="$FG_BASE02"
+        else
+            local USER_FG="$FG_BASE02"
+            local USER_BG="$BG_BASE02"
+            local USER_TEXT="$FG_BASE3"
+            local USER_EMOJI="☢️"
+        fi
 
         local WORKDIR_FG="$FG_COLOR6"
         local WORKDIR_BG="$BG_COLOR5"
 
         PS1="$FG_COLOR2"
         PS1+="$HOSTNAME_BG$FG_BASE3 \\h $HOSTNAME_FG"
-        PS1+="$USER_BG$RESET$USER_TEXT$USER_BG \\u ${USER_EMOJI}$USER_FG"
+        PS1+="$USER_BG$RESET$USER_TEXT$USER_BG \\u ${USER_EMOJI}  $USER_FG"
         PS1+="$WORKDIR_BG$RESET$WORKDIR_BG \\w "
         PS1+="$RESET${WORKDIR_FG}"
         PS1+="$(__git_info)"
