@@ -170,7 +170,29 @@
     "cmake.pinnedCommands": [
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
-    ]
+    ],
+
+    // Golang
+    "go.useLanguageServer": true,
+    "go.inferGopath": false,
+    "go.lintOnSave": "package",
+    "go.vetOnSave": "package",
+    "go.buildFlags": [],
+    "go.buildTags": "",
+    "go.coverOnSave": false,
+    "go.formatTool": "gofumpt",
+    "go.alternateTools": {
+        "go-langserver": "gopls"
+    },
+    "[go]": {
+        "editor.insertSpaces": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
 }
+
+
 
 
