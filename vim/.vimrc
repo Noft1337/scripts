@@ -9,4 +9,14 @@ set relativenumber
 set autoindent
 set tabstop=4
 set shiftwidth=4
-colorscheme koheler
+
+" Colorscheme
+try
+  colorscheme koheler
+catch
+  colorscheme ron
+endtry
+
+" Disable numbers when copying
+command! Copy set nonumber norelativenumber
+command! Nocopy set number relativenumber
