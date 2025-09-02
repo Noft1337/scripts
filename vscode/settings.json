@@ -221,34 +221,41 @@
     "todo-tree.highlights.customHighlight": {
         "[x]": {
             "foreground": "#00c200",
-            // "foreground": "#ffffff",
         },
         "[ ]": {
             "foreground": "#d30000",
-            // "foreground": "#ffffff",
         },
         "TODO": {
-            "foreground": "#FFD700",         // Yellow
+            "foreground": "#FFD700",
+            "rulerColour": "#ffd700",
+            "rulerOpacity": 70,
             "icon": "check",
+            "type": "text",
         },
         "NOTE": {
-            "foreground": "#ff0062",         // Magenta
+            "foreground": "#ff0062",
             "icon": "note",
         },
         "FIXME": {
-            "foreground": "#ff0000",         // Red-Orange (more readable than pure red)
+            "foreground": "#ffffff",
+            "background": "#ff0000",
+            "rulerColour": "#ff0000",
+            "rulerOpacity": 70,
+            "opacity": 75,
             "icon": "tools",
+            "type": "text"
         },
         "HACK": {
-            "foreground": "#FFFFFF",         // White (Note: may be hard to see on light themes)
+            "foreground": "#FFFFFF",
             "icon": "beaker"
         },
         "BUG": {
-            "foreground": "#2ECC71",         // Green
+            "foreground": "#2ECC71",
             "icon": "bug",
+            "type": "text"
         },
         "XXX": {
-            "foreground": "#3498DB",         // Blue
+            "foreground": "#3498DB",
             "icon": "flame",
             "fontStyle": "bold"
         }
