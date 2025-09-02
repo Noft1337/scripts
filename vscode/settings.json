@@ -167,7 +167,7 @@
     "C_Cpp.configurationWarnings": "enabled",
     "C_Cpp.default.cStandard": "c23",
     "C_Cpp.default.cppStandard": "c++17",
-     
+    
     "[c]": {
         "editor.semanticHighlighting.enabled": true,
         "editor.formatOnSave": true,
@@ -178,7 +178,6 @@
         "workbench.action.tasks.configureTaskRunner",
         "workbench.action.tasks.runTask"
     ],
-<<<<<<< Updated upstream
 
     // Golang
     "go.useLanguageServer": true,
@@ -219,7 +218,7 @@
         "[ ]",
         "[x]"
     ],
-     "todo-tree.highlights.customHighlight": {
+    "todo-tree.highlights.customHighlight": {
         "[x]": {
             "foreground": "#00c200",
             // "foreground": "#ffffff",
